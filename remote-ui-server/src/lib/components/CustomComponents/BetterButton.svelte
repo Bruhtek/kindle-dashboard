@@ -1,6 +1,6 @@
 <script lang="ts">
 
-	import { createEventDispatcher, onMount } from "svelte";
+	import { createEventDispatcher, onMount } from 'svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -11,7 +11,7 @@
 	function handleClick() {
 		if (isInTimeout) return;
 
-		dispatch("click");
+		dispatch('click');
 		isInTimeout = true;
 		setTimeout(() => {
 			isInTimeout = false;
@@ -27,14 +27,13 @@
 </script>
 
 <button
-        class:invisible-button={true}
-        {...$$restProps}
-        on:touchstart={handleClick}
-        on:click={handleClick}
-        on:touchmove={handleClick}
-        on:mouseenter={handleClick}
+	class:invisible-button={true}
+	{...$$restProps}
+	on:touchstart={handleClick}
+	on:click={handleClick}
+	on:touchmove={handleClick}
 >
-    <slot/>
+	<slot />
 </button>
 
 <style>
