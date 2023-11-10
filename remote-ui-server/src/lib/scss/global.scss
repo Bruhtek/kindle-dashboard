@@ -1,0 +1,66 @@
+@use "sass:math";
+
+* {
+	color: black;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+body, html {
+	overflow: hidden;
+}
+
+.font-small {
+	font-size: 0.75rem;
+}
+
+.font-medium {
+	font-size: 1.3rem;
+}
+
+.font-large {
+	font-size: 1.5rem;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-center {
+	display: flex;
+	place-items: center;
+	place-content: center;
+}
+
+.flex-space-between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+}
+
+@for $i from 1 through 12 {
+	.w-#{$i} {
+		width: #{math.div($i, 4)}rem;
+	}
+	.h-#{$i} {
+		height: #{math.div($i, 4)}rem;
+	}
+}
+
+@for $i from 1 through 14 {
+	@for $j from 1 through 14 {
+		.grid-#{$i}x#{$j} {
+			grid-row: span #{$i};
+			grid-column: span #{$j};
+		}
+	}
+}
+
+@for $i from 1 through 10 {
+	.color-#{$i * 100} {
+		color: rgb($i * 25.5, $i * 25.5, $i * 25.5);
+	}
+}

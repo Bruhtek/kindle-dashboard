@@ -1,0 +1,6 @@
+@use "sass:math";
+
+@function calculateTypeOffset($lineHeight, $fontSize, $descenderScale) {
+	$lineHeightScale: math.div($lineHeight, $fontSize);
+	@return math.div(($lineHeightScale - 1), 2) + $descenderScale;
+}
